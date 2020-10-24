@@ -1,17 +1,13 @@
 const router = require('express').Router();
-// const db = require('../../models');
-
+const controller = require('../../controllers/userController');
  
-  router.post("/", (req, res) => {
-    res.send("hello");
-  })
+  // router.post("/", (req, res) => {
+  //   res.send("hello");
+  // })
 
-  router.post("/signup", (req, res) => {
-    console.log(
-      "this is req.body name and email: " + req.body.username + " " + req.body.password
-    )
-    res.send(req.body);
-  });
+  router.route("/signup")
+    .get(controller.findAll)
+    .post(controller.create)
 
   module.exports = router;
 

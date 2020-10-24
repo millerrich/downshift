@@ -1,7 +1,7 @@
 {
-  "name": "time-spinner",
+  "name": "downshift",
   "version": "1.0.0",
-  "description": "Time Spinner",
+  "description": "downshift",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -25,6 +25,7 @@
     "express": "^4.16.3",
     "express-session": "^1.16.1",
     "if-env": "^1.0.4",
+    "mongoose": "^5.10.10",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1"

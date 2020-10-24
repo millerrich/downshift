@@ -1,10 +1,10 @@
-import React, { useState, setState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import API from '../utils/API';
 
 function SignUp() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-//   const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
 
  function handleChangeUser(event) {
     setUserName(event.target.value);
@@ -16,28 +16,15 @@ function SignUp() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("sign-up-form, username: ");
-    console.log(username);
-    console.log(password);
-    axios
-      .post("/", {
-        username: username,
-        password: password
-      })
-      .then((response) => {
-        console.log(response);
-        // if (response.data) {
-        //   console.log("successful signup");
-        //   .setUserName({
-        //     redirectTo: "/login"
-        //   });
-        // } else {
-        //   console.log("Sign-up error");
-        // }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    let name = username;
+    let pass = password;
+    setUser({username: name, password: pass});
+    signUpUser();
+  }
+
+  function signUpUser() {
+    console.log(user);
+    API.signUp(user);
   }
   return (
     <div className="container">
